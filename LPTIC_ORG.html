@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/modules/sankey.js"></script>
+<script src="https://code.highcharts.com/modules/organization.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+<script src="https://code.highcharts.com/modules/accessibility.js"></script>
+
+
+    <div id="container"></div>
+
+
+
+<style>
+  .highcharts-figure,
+.highcharts-data-table table {
+    min-width: 360px;
+    max-width: 800px;
+    margin: 1em auto;
+}
+
+.highcharts-data-table table {
+    font-family: Verdana, sans-serif;
+    border-collapse: collapse;
+    border: 1px solid #ebebeb;
+    margin: 10px auto;
+    text-align: center;
+    width: 100%;
+    max-width: 500px;
+}
+
+.highcharts-data-table caption {
+    padding: 1em 0;
+    font-size: 1.2em;
+    color: #555;
+}
+
+.highcharts-data-table th {
+    font-weight: 600;
+    padding: 0.5em;
+}
+
+.highcharts-data-table td,
+.highcharts-data-table th,
+.highcharts-data-table caption {
+    padding: 0.5em;
+}
+
+.highcharts-data-table thead tr,
+.highcharts-data-table tr:nth-child(even) {
+    background: #f8f8f8;
+}
+
+.highcharts-data-table tr:hover {
+    background: #f1f7ff;
+}
+
+#container h4 {
+    text-transform: none;
+    font-size: 14px;
+    font-weight: normal;
+}
+
+#container p {
+    font-size: 13px;
+    line-height: 16px;
+}
+
+@media screen and (max-width: 600px) {
+    #container h4 {
+        font-size: 2.3vw;
+        line-height: 3vw;
+    }
+
+    #container p {
+        font-size: 2.3vw;
+        line-height: 3vw;
+    }
+}
+
+</style>
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    Highcharts.chart('container', {
+    chart: {
+        height: 900,
+        inverted: true
+    },
+
+    title: {
+        text: 'Highcharts Org Chart'
+    },
+
+    accessibility: {
+        point: {
+            descriptionFormat: '{add index 1}. {toNode.name}' +
+                '{#if (ne toNode.name toNode.id)}, {toNode.id}{/if}, ' +
+                'reports to {fromNode.id}'
+        }
+    },
+
+    series: [{
+        type: 'organization',
+        name: 'LPTIC',
+        keys: ['from', 'to'],
+        data: [
+            
+            ['Chairman', 'Follow-up Office'],
+            ['Chairman', 'Legal Office'],
+            ['Chairman', 'CEO'],
+            ['Chairman', 'Board of Directors'],
+            ['Chairman', 'Office of Internal Audit'],
+            ['Chairman', 'Media & Communications'],
+            ['CEO', 'Projects Office'],
+            ['CEO', 'CEO Office Manager'],
+            ['CEO', 'Strategic Planing'],
+            ['CEO', 'Benghazi Office'],
+            ['CEO', 'Services Office'],
+            ['CEO', 'Finance Dept'],
+            ['CEO', 'Human Resources Dept'],
+            ['CEO', 'IT Technology Dept'],
+            ['CEO', 'Investment Dept'],
+            ['CEO', 'Technical Planing Dept'],
+            ['Finance Dept', 'Cash Flow'],
+            ['Finance Dept', 'Budget & Accounting'],
+            ['Finance Dept', 'Reporting & Analyze'],
+            ['Human Resources Dept', 'Training Section'],
+            ['Human Resources Dept', 'Employees Affairs'],
+            ['Human Resources Dept', 'Document Archiving'],
+            ['IT Technology Dept', 'Technical Support'],
+            ['IT Technology Dept', 'Systems & Apps'],
+            ['IT Technology Dept', 'Cybersecurity'],
+            ['Investment Dept', 'Exchanges'],
+            ['Investment Dept', 'Alernatives Opportunities'],
+            ['Investment Dept', 'subsidiary companies Follow up'],
+            ['Technical Planing Dept', 'Technology Section'],
+            ['Technical Planing Dept', 'Services Development'],
+            ['Technical Planing Dept', 'Quality & Performance Enhancement'],
+         
+
+
+            
+
+        ],
+        levels: [{
+            level: 0,
+            color: 'silver',
+            dataLabels: {
+                color: 'white'
+            },
+            height: 25
+        },{
+            level: 1,
+            color: '#AFD3E2',
+            dataLabels: {
+                color: 'black'
+            },
+            height: 25
+        },{
+            level: 2,
+            color: '#19A7CE',
+            dataLabels: {
+                color: 'white'
+            },
+            height: 25
+        },{
+            level: 3,
+            color: '#146C94',
+            dataLabels: {
+                color: 'white'
+            },
+            height: 25
+        }],
+        nodes: [{
+
+
+          /*Chairman followers*/
+            id: 'Chairman',
+            title: 'Chairman',
+            name: 'Mohamed Benayad',
+            image: 'https://lpticly2-my.sharepoint.com/personal/younis_labiad_lptic_ly/Documents/123/images_Resized/Personal/Mohamed%20Ben%20ayad.jpg'
+        }, {
+            id: 'CEO',
+            title: 'CEO',
+            name: 'Rajab Benrajab',
+            image: 'https://lpticly2-my.sharepoint.com/personal/younis_labiad_lptic_ly/Documents/123/images_Resized/Personal/25-%20%D8%B1%D8%AC%D8%A8%20%D9%81%D9%88%D8%B2%D9%8A%20%D8%B1%D8%AC%D8%A8_.jpg'  
+        }, {
+            id: 'Follow-up Office',
+            title: 'Follow-up Office',
+            name: 'Mohamed Abogreen',
+            image: 'https://lpticly2-my.sharepoint.com/personal/younis_labiad_lptic_ly/Documents/123/images_Resized/Personal/%D9%85%D8%AD%D9%85%D8%AF%20%D8%B9%D9%85%D8%A7%D8%B1%20%D8%A7%D9%94%D8%A8%D9%88%D9%82%D8%B1%D9%8A%D9%86A46.jpg'  
+        }, {
+            id: 'Legal Office',
+            title: 'Legal Office',
+            name: 'Khaled Zghinin',
+            image: 'https://lpticly2-my.sharepoint.com/personal/younis_labiad_lptic_ly/Documents/123/images_Resized/Personal/%D8%AE%D8%A7%D9%84%D8%AF%20%D9%85%D9%81%D8%AA%D8%A7%D8%AD%20%D9%85%D8%AD%D9%85%D8%AF%20%D8%B2%D8%BA%D9%8A%D9%86%D9%8A%D9%86%2095.jpg'  
+        }, {
+            id: 'Board of Directors',
+            title: 'Board of Directors',
+            name: 'Mostafa Algoaj',
+            image: 'https://lpticly2-my.sharepoint.com/personal/younis_labiad_lptic_ly/Documents/123/images_Resized/Personal/%D9%85%D8%B5%D8%B7%D9%81%D9%8A%20%D9%85%D8%AD%D9%85%D8%AF%20%D8%A7%D9%84%D8%BA%D9%88%D8%AC-modified.png'  
+        },{
+            id: 'Office of Internal Audit',
+            title: 'Office of Internal Audit',
+            name: 'Adel Mosbah',
+            image: 'https://lpticly2-my.sharepoint.com/personal/younis_labiad_lptic_ly/Documents/123/images_Resized/Personal/%D8%B9%D8%A7%D8%AF%D9%84%20%D9%85%D8%B5%D8%A8%D8%A7%D8%AD%20%D8%B9%D8%A8%D8%AF%D8%A7%D9%84%D9%82%D8%A7%D8%AF%D8%B1-9.jpg'  
+        },{
+            id: 'Media & Communications',
+            title: 'Media & Communications',
+            name: 'Osama Elshebani',
+            image: 'https://lpticly2-my.sharepoint.com/personal/younis_labiad_lptic_ly/Documents/123/images_Resized/Personal/%D8%A7%D8%B3%D8%A7%D9%85%D8%A9%20%D9%85%D8%AD%D9%85%D8%AF%20%D8%A7%D9%84%D8%B7%D8%A7%D9%87%D8%B1%20%D8%A7%D9%84%D8%B4%D9%8A%D8%A8%D8%A7%D9%86%D9%8A%20-98.jpg'  
+        },
+       /*CEO followers*/
+       {
+            id: 'Projects Office',
+            title: 'Projects Office',
+            name: 'Emad Abulaeha',
+            image: 'https://lpticly2-my.sharepoint.com/personal/younis_labiad_lptic_ly/Documents/123/images_Resized/Personal/%D8%B9%D9%85%D8%A7%D8%AF%20%D9%85%D9%86%D8%B5%D9%88%D8%B1%20%D8%A7%D9%94%D8%A8%D9%88%D9%84%D8%A7%D9%8A%D9%94%D8%AD%D8%A9A277.jpg',
+              
+        },{
+            id: 'CEO Office Manager',
+            title: 'CEO Office Manager',
+            name: 'ismail rashed',
+            image: 'https://lpticly2-my.sharepoint.com/personal/younis_labiad_lptic_ly/Documents/123/images_Resized/Personal/%D8%A7%D8%B3%D9%85%D8%A7%D8%B9%D9%8A%D9%84%20%D8%B3%D8%A7%D9%84%D9%85%20%D8%B1%D8%A7%D8%B4%D8%AFA213.jpg'  
+        },{
+            id: 'Strategic Planing',
+            title: 'Strategic Planing',
+            name: 'Fuad fadil',
+            image: 'https://lpticly2-my.sharepoint.com/personal/younis_labiad_lptic_ly/Documents/123/images_Resized/Personal/%D9%81%D9%88%D9%94%D8%A7%D8%AF%20%D9%85%D8%AD%D9%85%D9%88%D8%AF%20%D8%A8%D9%86%20%D9%81%D8%B6%D9%84A274.jpg'  
+        },{
+            id: 'Benghazi Office',
+            title: 'Benghazi Office',
+            name: 'Faisel Baragthi',
+            image: 'https://lpticly2-my.sharepoint.com/personal/younis_labiad_lptic_ly/Documents/123/images_Resized/Personal/%D9%81%D9%8A%D8%B5%D9%84%20%D8%B9%D9%82%D9%8A%D9%84%D8%A9%20%D8%A7%D9%93%D8%A8%D9%88%D8%A8%D9%83%D8%B1%20%D8%A7%D9%84%D8%A8%D8%B1%D8%BA%D8%AA%D9%8A%2020023.jpg'  
+        },{
+            id: 'Services Office',
+            title: 'Services Office',
+            name: 'Kadri Layas',
+            image: 'https://lpticly2-my.sharepoint.com/personal/younis_labiad_lptic_ly/Documents/123/images_Resized/Personal/%D9%82%D8%AF%D8%B1%D9%8A%20%D8%B9%D8%A8%D8%AF%20%D8%A7%D9%84%D8%AC%D9%84%D9%8A%D9%84%20%D9%84%D9%8A%D8%A7%D8%B3A205-3.jpg'  
+        },{
+            id: 'Finance Dept',
+            title: 'Finance Dept',
+            name: 'Elias Rouibah',
+            image: 'https://lpticly2-my.sharepoint.com/personal/younis_labiad_lptic_ly/Documents/123/images_Resized/Personal/%D8%A7%D9%84%D9%8A%D8%A7%D8%B3%20%D8%B9%D8%A8%D8%AF%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B5%D8%A7%D9%84%D8%AD%20%D8%B1%D9%88%D9%8A%D8%A8%D9%8A%D8%AD%20189.jpg',
+            column:'3'
+ 
+        },{
+            id: 'Human Resources Dept',
+            title: 'Human Resources Dept',
+            name: 'Abdulaziz Elwalda',
+            image: 'https://lpticly2-my.sharepoint.com/personal/younis_labiad_lptic_ly/Documents/123/images_Resized/Personal/%D8%B9%D8%A8%D8%AF%D8%A7%D9%84%D8%B9%D8%B2%D9%8A%D8%B2%20%D9%85%D8%B5%D8%B7%D9%81%D9%89%20%D8%A7%D9%84%D9%88%D9%84%D8%AF%D8%A9A225.jpg',
+            column:'3'  
+        },{
+            id: 'IT Technology Dept',
+            title: 'IT Technology Dept',
+            name: 'Hatim Shaban',
+            image: 'https://lpticly2-my.sharepoint.com/personal/younis_labiad_lptic_ly/Documents/123/images_Resized/Personal/%D8%AD%D8%A7%D8%AA%D9%85%20%D8%B9%D8%A8%D8%AF%20%D8%A7%D9%84%D8%B1%D8%B2%D8%A7%D9%82%20%D8%A8%D9%86%20%D8%B4%D8%B9%D8%A8%D8%A7%D9%86A133.jpg',
+            column:'3'  
+        },{
+            id: 'Investment Dept',
+            title: 'Investment Dept',
+            name: 'Mohamed Abusamaha',
+            image: 'https://lpticly2-my.sharepoint.com/personal/younis_labiad_lptic_ly/Documents/123/images_Resized/Personal/%D9%85%D8%AD%D9%85%D8%AF%20%D8%A7%D9%84%D8%B5%D8%A7%D8%AF%D9%82%20%D8%B9%D8%A8%D8%AF%D8%A7%D9%84%D9%84%D9%87%20%20%D8%A7%D9%94%D8%A8%D9%88%D8%B3%D9%85%D8%A7%D8%AD%D9%87%2035.jpg',
+            column:'3'  
+        },{
+            id: 'Technical Planing Dept',
+            title: 'Technical Planing Dept',
+            name: 'Abdulmunam Onies',
+            image: 'https://lpticly2-my.sharepoint.com/personal/younis_labiad_lptic_ly/Documents/123/images_Resized/Personal/%D8%B9%D8%A8%D8%AF%D8%A7%D9%84%D9%85%D9%86%D8%B9%D9%85%20%D8%B2%D8%A7%D9%8A%D8%AF%20%D8%B9%D9%84%D9%8A%20%D9%88%D9%86%D9%8A%D8%B3-51_.jpg',
+            column:'3' 
+        },
+        /*Human Resources Dept*/
+        {
+            id: 'Training Section',
+            title: 'Training Section',
+            name: 'Amani Ghirwash',
+            image: 'https://lpticly2-my.sharepoint.com/personal/younis_labiad_lptic_ly/Documents/123/images_Resized/Personal/44%20-%D8%A7%D9%94%D9%85%D8%A7%D9%86%D9%8A%20%D8%AD%D8%B3%D9%8A%D9%86%20%D9%85%D8%AD%D9%85%D8%AF%20%D9%82%D8%B1%D9%88%D8%A7%D8%B4.jpg',
+            column:'4',
+            layout:'hanging',
+        },     {
+            id: 'Employees Affairs',
+            title: 'Employees Affairs',
+            name: 'Abdalla Abuzeid',
+            image: 'https://lpticly2-my.sharepoint.com/personal/younis_labiad_lptic_ly/Documents/123/images_Resized/Personal/%D8%B9%D8%A8%D8%AF%20%D8%A7%D9%84%D9%84%D9%87%20%D8%A7%D9%84%D8%A8%D9%87%D9%84%D9%88%D9%84%20%D8%A7%D9%94%D8%A8%D9%88%D8%B2%D9%8A%D8%AF%20A247.jpg',
+            column:'5',
+            layout:'hanging',
+        }, {
+            id: 'Document Archiving',
+            title: 'Document Archiving',
+            name: '',
+            image: '',
+            column:'6',
+            layout:'hanging',
+        },  
+        
+        /*Finance Dept*/
+        
+        {
+            id: 'Cash Flow',
+            title: 'Cash Flow',
+            name: 'Tarik Altarhourne',
+            image: 'https://lpticly2-my.sharepoint.com/personal/younis_labiad_lptic_ly/Documents/123/images_Resized/Personal/%D8%B7%D8%A7%D8%B1%D9%82%20%D9%85%D8%AD%D9%85%D8%AF%20%D8%A7%D9%84%D8%AA%D8%B1%D9%87%D9%88%D9%86%D9%8AA200.jpg',
+            column:'4',
+            layout:'hanging',
+        },     {
+            id: 'Budget & Accounting',
+            title: 'Budget & Accounting',
+            name: 'Mohamed Elhrarai',
+            image: 'https://lpticly2-my.sharepoint.com/personal/younis_labiad_lptic_ly/Documents/123/images_Resized/Personal/%D9%85%D8%AD%D9%85%D8%AF%20%D8%AD%D8%A8%D9%8A%D8%A8%20%D8%A7%D9%84%D8%AD%D8%B1%D8%A7%D8%B1%D9%8AA163.jpg',
+            column:'5',
+            layout:'hanging',
+        }, {
+            id: 'Reporting & Analyze',
+            title: 'Reporting & Analyze',
+            name: 'Ahmed Attia',
+            image: 'https://lpticly2-my.sharepoint.com/personal/younis_labiad_lptic_ly/Documents/123/images_Resized/Personal/%D8%A3%D8%AD%D9%85%D8%AF%20%D8%B9%D8%B7%D9%8A%D8%A9%20%D8%A3%D8%AD%D9%85%D8%AF%20%D8%A7%D9%84%D9%82%D8%B0%D8%A7%D9%81%D9%8AA93.jpg',
+            column:'6',
+            layout:'hanging',
+        },
+
+
+         /*IT Technology Dept*/
+
+         {
+            id: 'Technical Support',
+            title: 'Technical Support',
+            name: '',
+            image: '',
+            column:'4',
+            layout:'hanging',
+        },     {
+            id: 'Systems & Apps',
+            title: 'Systems & Apps',
+            name: '',
+            image: '',
+            column:'5',
+            layout:'hanging',
+        }, {
+            id: 'Cybersecurity',
+            title: 'Cybersecurity',
+            name: '',
+            image: '',
+            column:'6',
+            layout:'hanging',
+        },
+
+        /*Investment Dept*/
+
+        {
+            id: 'Exchanges',
+            title: 'Exchanges',
+            name: '',
+            image: '',
+            column:'4',
+            layout:'hanging',
+        },     {
+            id: 'Alernatives Opportunities',
+            title: 'Alernatives Opportunities',
+            name: '',
+            image: '',
+            column:'5',
+            layout:'hanging',
+        }, {
+            id: 'subsidiary companies Follow up',
+            title: 'subsidiary companies Follow up',
+            name: '',
+            image: '',
+            column:'6',
+            layout:'hanging',
+        },
+
+          /*Technical Planing Dept*/
+
+          {
+            id: 'Technology Section',
+            title: 'Technology Section',
+            name: 'Sadek Abdulaal',
+            image: 'https://lpticly2-my.sharepoint.com/personal/younis_labiad_lptic_ly/Documents/123/images_Resized/Personal/%D8%A7%D9%84%D8%B5%D8%A7%D8%AF%D9%82%20%D9%85%D8%B5%D8%B7%D9%81%D9%89%20%D8%B9%D8%A8%D8%AF%20%D8%A7%D9%84%D8%B9%D8%A7%D9%84A52.jpg',
+            column:'4',
+            layout:'hanging',
+        },     {
+            id: 'Services Development',
+            title: 'Services Development',
+            name: 'Mahmud Alhabeshi',
+            image: 'https://lpticly2-my.sharepoint.com/personal/younis_labiad_lptic_ly/Documents/123/images_Resized/Personal/%D9%85%D8%AD%D9%85%D9%88%D8%AF%20%D8%AC%D9%85%D8%B9%D8%A9%20%D8%A7%D9%84%D8%AD%D8%A8%D9%8A%D8%B4%D9%8AA24.jpg',
+            column:'5',
+            layout:'hanging',
+        }, {
+            id: 'Quality & Performance Enhancement',
+            title: 'Quality & Performance Enhancement',
+            name: '',
+            image: '',
+            column:'6',
+            layout:'hanging',
+        },
+
+
+      ],
+        colorByPoint: false,
+        color: '#007ad0',
+        dataLabels: {
+            color: 'white'
+        },
+        borderColor: 'white',
+        nodeWidth: 90
+    }],
+    tooltip: {
+        outside: true
+    },
+    exporting: {
+        allowHTML: true,
+        sourceWidth: 800,
+        sourceHeight: 600
+    },
+    credits: {
+    enabled: false
+  },
+
+});
+  </script>
+</body>
+</html>
